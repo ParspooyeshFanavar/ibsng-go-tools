@@ -1,4 +1,4 @@
-module check-json
+module github.com/ParspooyeshFanavar/ibsng-go-tools
 
 go 1.21.0
 
