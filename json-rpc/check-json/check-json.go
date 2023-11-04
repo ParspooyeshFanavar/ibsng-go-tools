@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -53,6 +54,8 @@ func main() {
 				Indent:   "  ",
 				SortKeys: false,
 			})
+			jsonB_3 = bytes.ReplaceAll(jsonB_3, []byte(`\u003e`), []byte(`>`))
+			jsonB_3 = bytes.ReplaceAll(jsonB_3, []byte(`\u003c`), []byte(`<`))
 			stdJsonPath := fpath_nox + ".std.json"
 			err = os.WriteFile(stdJsonPath, jsonB_3, 0o644)
 			if err != nil {
